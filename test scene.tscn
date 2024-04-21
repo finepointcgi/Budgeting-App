@@ -1,0 +1,50 @@
+[gd_scene load_steps=6 format=3 uid="uid://2p2btkkctdwt"]
+
+[ext_resource type="Script" path="res://AppManagertwo.cs" id="1_r1ijw"]
+[ext_resource type="Script" path="res://LineEdit.cs" id="2_6kimy"]
+[ext_resource type="Script" path="res://Button.gd" id="2_ojjkn"]
+[ext_resource type="Script" path="res://CharacterBody2D.cs" id="4_2buou"]
+[ext_resource type="Texture2D" uid="uid://dnbh5twff22ri" path="res://icon.svg" id="5_kd5kd"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_r1ijw")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 315.0
+offset_top = 49.0
+offset_right = 451.0
+offset_bottom = 111.0
+text = "Press Me"
+script = ExtResource("2_ojjkn")
+
+[node name="LineEdit" type="LineEdit" parent="."]
+layout_mode = 0
+offset_left = 41.0
+offset_top = 69.0
+offset_right = 298.0
+offset_bottom = 100.0
+script = ExtResource("2_6kimy")
+
+[node name="TextEdit" type="TextEdit" parent="."]
+layout_mode = 0
+offset_left = 41.0
+offset_top = 287.0
+offset_right = 471.0
+offset_bottom = 587.0
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+script = ExtResource("4_2buou")
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
+position = Vector2(0.999999, -0.499999)
+scale = Vector2(0.46875, 0.445313)
+texture = ExtResource("5_kd5kd")
+
+[connection signal="button_down" from="Button" to="." method="_on_button_button_down"]

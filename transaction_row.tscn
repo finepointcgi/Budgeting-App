@@ -1,0 +1,61 @@
+[gd_scene load_steps=3 format=3 uid="uid://du53rpdkiv50f"]
+
+[ext_resource type="StyleBox" uid="uid://dxaj4ymxqe3qw" path="res://transaction_row_dark.tres" id="1_hlcxu"]
+[ext_resource type="Script" path="res://TransactionRow.cs" id="2_wlquf"]
+
+[node name="TransactionPanel" type="Panel"]
+custom_minimum_size = Vector2(0, 95)
+offset_right = 1152.0
+offset_bottom = 124.0
+theme_override_styles/panel = ExtResource("1_hlcxu")
+script = ExtResource("2_wlquf")
+
+[node name="TransactionRow" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -2.0
+offset_right = -2.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 2
+
+[node name="Date" type="RichTextLabel" parent="TransactionRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "10/10/2020"
+fit_content = true
+
+[node name="Name" type="RichTextLabel" parent="TransactionRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "test transaction long version name "
+scroll_active = false
+
+[node name="Amount" type="RichTextLabel" parent="TransactionRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "100000"
+fit_content = true
+
+[node name="Type" type="OptionButton" parent="TransactionRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+item_count = 6
+selected = 0
+popup/item_0/text = "Home"
+popup/item_0/id = 0
+popup/item_1/text = "Utilities"
+popup/item_1/id = 1
+popup/item_2/text = "Food"
+popup/item_2/id = 2
+popup/item_3/text = "Restaurant"
+popup/item_3/id = 3
+popup/item_4/text = "Personal"
+popup/item_4/id = 4
+popup/item_5/text = "Other"
+popup/item_5/id = 5
+
+[connection signal="item_selected" from="TransactionRow/Type" to="." method="_on_type_item_selected"]

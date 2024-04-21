@@ -1,0 +1,218 @@
+[gd_scene load_steps=7 format=3 uid="uid://bc5x45sxl7cbe"]
+
+[ext_resource type="Script" path="res://AppManager.cs" id="1_i6sg6"]
+[ext_resource type="PackedScene" uid="uid://du53rpdkiv50f" path="res://transaction_row.tscn" id="2_36bnu"]
+[ext_resource type="PackedScene" uid="uid://b8werxhqtg0dp" path="res://add_transaction_window.tscn" id="3_fulyw"]
+[ext_resource type="Texture2D" uid="uid://d07sq0t5kcwrw" path="res://green pie part.png" id="4_1b6yh"]
+[ext_resource type="PackedScene" uid="uid://dm5cgiuaenj00" path="res://catagory_list_item.tscn" id="4_d3tcr"]
+[ext_resource type="Texture2D" uid="uid://y8i20mis41ea" path="res://Red pie part.png" id="5_lfe1q"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_i6sg6")
+TransactionList = ExtResource("2_36bnu")
+AddTransactionMenu = ExtResource("3_fulyw")
+TransactionCatagoryLineItem = ExtResource("4_d3tcr")
+
+[node name="TotalInE" type="HBoxContainer" parent="."]
+layout_mode = 1
+offset_left = 9.0
+offset_top = 51.0
+offset_right = 532.0
+offset_bottom = 201.0
+
+[node name="Income" type="VBoxContainer" parent="TotalInE"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Income" type="RichTextLabel" parent="TotalInE/Income"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme_override_font_sizes/bold_font_size = 20
+bbcode_enabled = true
+text = "[center][b]Income"
+fit_content = true
+
+[node name="IncomeAmount" type="RichTextLabel" parent="TotalInE/Income"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme_override_font_sizes/bold_font_size = 18
+bbcode_enabled = true
+text = "[center][b]1000"
+fit_content = true
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="TotalInE"]
+layout_mode = 2
+size_flags_horizontal = 3
+fill_mode = 4
+nine_patch_stretch = true
+texture_under = ExtResource("4_1b6yh")
+texture_progress = ExtResource("5_lfe1q")
+
+[node name="Expense" type="VBoxContainer" parent="TotalInE"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Expense" type="RichTextLabel" parent="TotalInE/Expense"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme_override_font_sizes/bold_font_size = 20
+bbcode_enabled = true
+text = "[center][b]Expense"
+fit_content = true
+
+[node name="ExpenseAmount" type="RichTextLabel" parent="TotalInE/Expense"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme_override_font_sizes/bold_font_size = 18
+bbcode_enabled = true
+text = "[center][b]1000"
+fit_content = true
+
+[node name="TransactionList" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 37.0
+offset_top = 247.0
+offset_right = 538.0
+offset_bottom = 638.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TransactionList"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 21.0
+grow_horizontal = 2
+
+[node name="Date" type="RichTextLabel" parent="TransactionList/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Date"
+fit_content = true
+
+[node name="Name" type="RichTextLabel" parent="TransactionList/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Name"
+fit_content = true
+
+[node name="Amount" type="RichTextLabel" parent="TransactionList/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Amount"
+fit_content = true
+
+[node name="Type" type="RichTextLabel" parent="TransactionList/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Type"
+fit_content = true
+
+[node name="ScrollContainer" type="ScrollContainer" parent="TransactionList"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 31.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TransactionList" type="VBoxContainer" parent="TransactionList/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Add Transaction" type="Button" parent="."]
+layout_mode = 0
+offset_left = 484.0
+offset_top = 559.0
+offset_right = 524.0
+offset_bottom = 593.0
+theme_override_font_sizes/font_size = 18
+text = "+"
+
+[node name="TransactionCatagoryItems" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 712.0
+offset_top = 266.0
+offset_right = -25.0
+offset_bottom = -26.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="TransactionCatagoryItems"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Headers" type="HBoxContainer" parent="TransactionCatagoryItems"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.079
+offset_bottom = -0.124001
+grow_horizontal = 2
+
+[node name="Label" type="Label" parent="TransactionCatagoryItems/Headers"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Type"
+
+[node name="Label2" type="Label" parent="TransactionCatagoryItems/Headers"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Planned"
+
+[node name="Label3" type="Label" parent="TransactionCatagoryItems/Headers"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Actual"
+
+[node name="Label4" type="Label" parent="TransactionCatagoryItems/Headers"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Difference"
+
+[node name="Body" type="VBoxContainer" parent="TransactionCatagoryItems"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 28.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="FileDialog" type="FileDialog" parent="."]
+title = "Open a File"
+position = Vector2i(420, 240)
+size = Vector2i(392, 159)
+ok_button_text = "Open"
+file_mode = 0
+access = 2
+use_native_dialog = true
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1013.0
+offset_top = 28.0
+offset_right = 1118.0
+offset_bottom = 81.0
+text = "Load CSV"
+
+[connection signal="button_down" from="Add Transaction" to="." method="_on_add_transaction_button_down"]
+[connection signal="file_selected" from="FileDialog" to="." method="_on_file_dialog_file_selected"]
+[connection signal="button_down" from="Button" to="." method="_on_button_button_down"]

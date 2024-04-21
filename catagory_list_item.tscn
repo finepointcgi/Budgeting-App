@@ -1,0 +1,28 @@
+[gd_scene load_steps=2 format=3 uid="uid://dm5cgiuaenj00"]
+
+[ext_resource type="Script" path="res://CatagoryListItem.cs" id="1_dnyxq"]
+
+[node name="CatagoryListItem" type="HBoxContainer"]
+script = ExtResource("1_dnyxq")
+
+[node name="Type" type="Label" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Type"
+
+[node name="Planned" type="LineEdit" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Type"
+
+[node name="Actual" type="Label" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Type"
+
+[node name="Difference" type="Label" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Type"
+
+[connection signal="text_changed" from="Planned" to="." method="_on_planned_text_changed"]
